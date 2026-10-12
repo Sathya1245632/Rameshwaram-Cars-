@@ -71,7 +71,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable} h-full scroll-smooth`}>
-      <body className="min-h-full flex flex-col bg-[#FAF8F3] text-[#1C2B38] font-body selection:bg-[#D5AD65] selection:text-[#0B1F33]">
+      <body className="min-h-full flex flex-col bg-[#FAF8F3] text-[#1C2B38] font-body selection:bg-[#D5AD65] selection:text-[#0B1F33] pb-16 md:pb-0">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

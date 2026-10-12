@@ -368,7 +368,7 @@ export default function Hero3D() {
   )}`;
 
   return (
-    <section className="relative w-full min-h-[92vh] lg:min-h-[96vh] flex items-center justify-center overflow-hidden bg-[#000]">
+    <section className="relative w-full min-h-[88vh] lg:min-h-[96vh] flex items-center justify-center overflow-hidden bg-[#000]">
       {/* 3D WebGL Canvas Layer */}
       {hasWebGLSupport && (
         <div
@@ -393,29 +393,29 @@ export default function Hero3D() {
       <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#0B1F33] via-[#0B1F33]/50 to-[#0B1F33]/30 pointer-events-none" />
 
       {/* Hero Content Layer */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 text-center flex flex-col items-center">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-28 text-center flex flex-col items-center">
         {/* Editorial Sub-badge */}
-        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#123B56]/80 border border-[#D5AD65]/40 text-[#D5AD65] text-xs uppercase tracking-widest font-semibold mb-6 shadow-md backdrop-blur-md">
-          <Sparkles className="w-3.5 h-3.5 text-[#D5AD65]" />
-          <span>Premier Island Chauffeurs & Pilgrimage Guides</span>
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-[#123B56]/85 border border-[#D5AD65]/40 text-[#D5AD65] text-[11px] sm:text-xs uppercase tracking-widest font-semibold mb-4 sm:mb-6 shadow-md backdrop-blur-md">
+          <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D5AD65]" />
+          <span>Premier Island Chauffeurs & Guides</span>
         </div>
 
         {/* Hero Headline */}
-        <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#FAF8F3] tracking-tight leading-[1.12] max-w-4xl drop-shadow-md">
+        <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#FAF8F3] tracking-tight leading-[1.15] max-w-4xl drop-shadow-md">
           Discover Rameshwaram. <br />
           <span className="text-[#D5AD65] italic font-normal">Experience the Journey.</span>
         </h1>
 
         {/* Supporting Text */}
-        <p className="mt-6 text-base sm:text-lg md:text-xl text-slate-200 font-body max-w-2xl leading-relaxed drop-shadow">
+        <p className="mt-3 sm:mt-6 text-xs sm:text-base md:text-lg text-slate-200 font-body max-w-2xl leading-relaxed drop-shadow px-2">
           Explore sacred temples, breathtaking coastlines, and unforgettable destinations with thoughtfully planned travel experiences.
         </p>
 
         {/* Call-to-Actions */}
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+        <div className="mt-6 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto max-w-xs sm:max-w-none">
           <Link
             href="/packages"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-md bg-[#D5AD65] hover:bg-[#B58D43] text-[#0B1F33] font-semibold text-sm uppercase tracking-wider shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 rounded-md bg-[#D5AD65] hover:bg-[#B58D43] text-[#0B1F33] font-bold text-xs sm:text-sm uppercase tracking-wider shadow-lg hover:shadow-xl transition-all transform active:scale-95"
           >
             <span>EXPLORE PACKAGES</span>
             <ArrowRight className="w-4 h-4" />
@@ -423,7 +423,7 @@ export default function Hero3D() {
 
           <Link
             href="/contact"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-md bg-[#123B56]/90 hover:bg-[#123B56] text-[#FAF8F3] border border-[#D5AD65]/50 font-semibold text-sm uppercase tracking-wider backdrop-blur-md transition-all hover:border-[#D5AD65]"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 rounded-md bg-[#123B56]/90 hover:bg-[#123B56] text-[#FAF8F3] border border-[#D5AD65]/50 font-semibold text-xs sm:text-sm uppercase tracking-wider backdrop-blur-md transition-all active:scale-95"
           >
             <Compass className="w-4 h-4 text-[#D5AD65]" />
             <span>PLAN YOUR JOURNEY</span>
@@ -431,39 +431,39 @@ export default function Hero3D() {
         </div>
 
         {/* Key Credibility Highlights Bento Box */}
-        <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-4xl w-full">
-          <div className="p-4 rounded-lg bg-[#0B1F33]/70 backdrop-blur-md border border-white/10 text-center">
-            <span className="text-2xl lg:text-3xl font-heading font-bold text-[#D5AD65] block">4.9 ★</span>
-            <span className="text-xs text-slate-300 font-medium">1,280+ Devotee Reviews</span>
+        <div className="mt-8 sm:mt-14 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-6 max-w-4xl w-full">
+          <div className="p-3 sm:p-4 rounded-lg bg-[#0B1F33]/70 backdrop-blur-md border border-white/10 text-center">
+            <span className="text-xl sm:text-2xl lg:text-3xl font-heading font-bold text-[#D5AD65] block">4.9 ★</span>
+            <span className="text-[10px] sm:text-xs text-slate-300 font-medium">1,280+ Reviews</span>
           </div>
 
-          <div className="p-4 rounded-lg bg-[#0B1F33]/70 backdrop-blur-md border border-white/10 text-center">
-            <span className="text-2xl lg:text-3xl font-heading font-bold text-[#FAF8F3] block">15,000+</span>
-            <span className="text-xs text-slate-300 font-medium">Pilgrims Guided</span>
+          <div className="p-3 sm:p-4 rounded-lg bg-[#0B1F33]/70 backdrop-blur-md border border-white/10 text-center">
+            <span className="text-xl sm:text-2xl lg:text-3xl font-heading font-bold text-[#FAF8F3] block">15,000+</span>
+            <span className="text-[10px] sm:text-xs text-slate-300 font-medium">Yatris Guided</span>
           </div>
 
-          <div className="p-4 rounded-lg bg-[#0B1F33]/70 backdrop-blur-md border border-white/10 text-center">
-            <span className="text-2xl lg:text-3xl font-heading font-bold text-[#D5AD65] block">100%</span>
-            <span className="text-xs text-slate-300 font-medium">Transparent Pricing</span>
+          <div className="p-3 sm:p-4 rounded-lg bg-[#0B1F33]/70 backdrop-blur-md border border-white/10 text-center">
+            <span className="text-xl sm:text-2xl lg:text-3xl font-heading font-bold text-[#D5AD65] block">100%</span>
+            <span className="text-[10px] sm:text-xs text-slate-300 font-medium">Transparent Fares</span>
           </div>
 
-          <div className="p-4 rounded-lg bg-[#0B1F33]/70 backdrop-blur-md border border-white/10 text-center">
-            <span className="text-2xl lg:text-3xl font-heading font-bold text-[#FAF8F3] block">24 / 7</span>
-            <span className="text-xs text-slate-300 font-medium">Island Cab Dispatch</span>
+          <div className="p-3 sm:p-4 rounded-lg bg-[#0B1F33]/70 backdrop-blur-md border border-white/10 text-center">
+            <span className="text-xl sm:text-2xl lg:text-3xl font-heading font-bold text-[#FAF8F3] block">24 / 7</span>
+            <span className="text-[10px] sm:text-xs text-slate-300 font-medium">Island Dispatch</span>
           </div>
         </div>
 
         {/* Quick WhatsApp Assistance Tag */}
-        <div className="mt-8 flex items-center gap-2 text-xs text-slate-300">
+        <div className="mt-6 sm:mt-8 flex items-center gap-2 text-[11px] sm:text-xs text-slate-300 flex-wrap justify-center">
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span>Arriving today? Instant dispatch available via</span>
+          <span>Arriving today? Instant dispatch:</span>
           <a
             href={whatsappInquiryUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="text-[#D5AD65] hover:underline font-semibold flex items-center gap-1"
           >
-            <MessageCircle className="w-3.5 h-3.5" /> WhatsApp (+91 88076 19273)
+            <MessageCircle className="w-3.5 h-3.5" /> WhatsApp Desk
           </a>
         </div>
       </div>
