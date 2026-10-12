@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Clock, Ticket, ArrowRight, MessageCircle, MapPin } from "lucide-react";
+import { Clock, Ticket, ArrowRight, MessageCircle } from "lucide-react";
 import { Destination, businessInfo } from "@/data/travelData";
 
 interface DestinationCardProps {
@@ -16,41 +16,41 @@ export default function DestinationCard({ destination }: DestinationCardProps) {
   )}`;
 
   return (
-    <div className="group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-[#D5AD65]/60 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
-      {/* Visual Header */}
-      <div className="relative h-64 w-full overflow-hidden bg-slate-900">
-        <Image
-          src={destination.image}
-          alt={destination.name}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover group-hover:scale-105 transition-transform duration-700"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F33] via-transparent to-transparent opacity-90" />
+    <div className="group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-[#D5AD65]/50 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
+      {/* Consistent 16:10 Visual Header */}
+      <div>
+        <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900">
+          <Image
+            src={destination.image}
+            alt={destination.name}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F33]/85 via-black/20 to-transparent" />
 
-        <div className="absolute bottom-4 left-4 right-4 z-10">
-          <span className="text-[11px] font-semibold uppercase tracking-wider text-[#D5AD65] block mb-1">
-            Must-Visit Landmark
-          </span>
-          <h3 className="font-heading text-2xl font-bold text-white drop-shadow">
-            {destination.name}
-          </h3>
+          <div className="absolute bottom-3 left-4 right-4 z-10">
+            <span className="text-[10px] font-semibold uppercase tracking-wider text-[#D5AD65] block mb-0.5">
+              Must-Visit Landmark
+            </span>
+            <h3 className="font-heading text-xl sm:text-2xl font-bold text-white drop-shadow">
+              {destination.name}
+            </h3>
+          </div>
         </div>
-      </div>
 
-      {/* Body Info */}
-      <div className="p-6 flex-1 flex flex-col justify-between">
-        <div>
-          <p className="text-xs text-slate-500 italic mb-3 font-heading">
+        {/* Body Info with Clean Whitespace */}
+        <div className="p-6">
+          <p className="text-xs text-slate-500 italic mb-2.5 font-heading">
             "{destination.tagline}"
           </p>
 
-          <p className="text-xs text-slate-600 leading-relaxed line-clamp-3">
+          <p className="text-xs text-slate-600 leading-relaxed line-clamp-3 font-body">
             {destination.brief}
           </p>
 
-          {/* Quick Details Chips */}
-          <div className="mt-4 pt-4 border-t border-slate-100 space-y-2 text-xs text-slate-600">
+          {/* Quick Details */}
+          <div className="mt-4 pt-3.5 border-t border-slate-100 space-y-1.5 text-xs text-slate-600">
             <div className="flex items-center gap-2">
               <Clock className="w-3.5 h-3.5 text-[#D5AD65] shrink-0" />
               <span className="truncate"><strong>Timings:</strong> {destination.visitorInformation.timings}</span>
@@ -61,26 +61,28 @@ export default function DestinationCard({ destination }: DestinationCardProps) {
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Action Buttons */}
-        <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2.5">
+      {/* Single Clear Action Button */}
+      <div className="px-6 pb-6 pt-2">
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-[#D5AD65] hover:bg-[#B58D43] text-[#0B1F33] text-xs font-bold uppercase tracking-wider transition-all shadow-sm active:scale-95"
+        >
+          <MessageCircle className="w-4 h-4 fill-current" />
+          <span>Plan Visit via WhatsApp</span>
+        </a>
+
+        <div className="mt-2.5 text-center">
           <Link
             href={`/destinations/${destination.slug}`}
-            className="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-md border border-[#123B56] text-[#123B56] hover:bg-[#123B56] hover:text-white text-xs font-semibold uppercase tracking-wider transition-all"
+            className="text-[11px] font-semibold text-slate-500 hover:text-[#0B1F33] transition-colors inline-flex items-center gap-1"
           >
-            <span>Visitor Guide</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <span>Read Visitor Guide & Tips</span>
+            <ArrowRight className="w-3 h-3" />
           </Link>
-
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-md bg-[#D5AD65] hover:bg-[#B58D43] text-[#0B1F33] text-xs font-bold uppercase tracking-wider transition-all shadow-sm"
-          >
-            <MessageCircle className="w-3.5 h-3.5 fill-current" />
-            <span>Plan Visit</span>
-          </a>
         </div>
       </div>
     </div>

@@ -17,7 +17,7 @@ import {
   Calendar,
 } from "lucide-react";
 import Hero3D from "@/components/home/Hero3D";
-import FareEstimator from "@/components/home/FareEstimator";
+import CompactBookingBar from "@/components/home/CompactBookingBar";
 import PackageCard from "@/components/packages/PackageCard";
 import DestinationCard from "@/components/destinations/DestinationCard";
 import BlogCard from "@/components/blog/BlogCard";
@@ -62,10 +62,8 @@ export default function HomePage() {
       {/* 1. Immersive 3D Hero Section */}
       <Hero3D />
 
-      {/* 2. Interactive Trip Fare Estimator & Instant Booking (Bento Section) */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto -mt-10 relative z-30 w-full">
-        <FareEstimator />
-      </section>
+      {/* 2. Compact Booking Bar (Clean & Placed Directly Beneath Hero) */}
+      <CompactBookingBar />
 
       {/* 3. Featured Tour Packages Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
