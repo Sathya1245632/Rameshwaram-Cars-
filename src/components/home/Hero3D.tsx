@@ -12,8 +12,12 @@ export default function Hero3D() {
   const [hasWebGLSupport, setHasWebGLSupport] = useState(true);
 
   useEffect(() => {
+    // 1. Mobile detection & reduced motion check
+    const isMobile = window.innerWidth < 768 || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) {
+
+    // On mobile devices, bypass heavy 3D rendering to ensure smooth, lag-free 60fps scrolling
+    if (isMobile || prefersReducedMotion) {
       setHasWebGLSupport(false);
       return;
     }
@@ -38,14 +42,14 @@ export default function Hero3D() {
       camera = new THREE.PerspectiveCamera(55, width / height, 0.1, 2000);
       camera.position.set(0, 18, 55);
 
-      // 3. WebGL Renderer
+      // 3. WebGL Renderer (Optimized pixel ratio for performance)
       renderer = new THREE.WebGLRenderer({
         antialias: true,
         alpha: true,
         powerPreference: "high-performance",
       });
       renderer.setSize(width, height);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
       renderer.toneMappingExposure = 1.25;
 
@@ -84,10 +88,10 @@ export default function Hero3D() {
       haloMesh.position.z += 0.5;
       scene.add(haloMesh);
 
-      // 7. Pamban Ocean Water Surface (Displaced Plane Grid)
+      // 7. Pamban Ocean Water Surface (Displaced Plane Grid - Optimized)
       const oceanWidth = 240;
       const oceanDepth = 240;
-      const oceanGeo = new THREE.PlaneGeometry(oceanWidth, oceanDepth, 64, 64);
+      const oceanGeo = new THREE.PlaneGeometry(oceanWidth, oceanDepth, 36, 36);
       oceanGeo.rotateX(-Math.PI / 2);
 
       const oceanMat = new THREE.MeshStandardMaterial({
@@ -287,11 +291,22 @@ export default function Hero3D() {
       };
       window.addEventListener("resize", handleResize);
 
+      let isVisible = true;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          isVisible = entry.isIntersecting;
+        },
+        { threshold: 0.05 }
+      );
+      observer.observe(container);
+
       // 12. Animation Loop
       let startTime = performance.now();
 
       const animate = () => {
         animationFrameId = requestAnimationFrame(animate);
+        if (!isVisible) return; // Pause completely when scrolled away
+
         const elapsedTime = (performance.now() - startTime) * 0.001;
 
         // Procedural Ocean Waves Simulation
@@ -330,6 +345,7 @@ export default function Hero3D() {
       animate();
 
       return () => {
+        observer.disconnect();
         window.removeEventListener("mousemove", onMouseMove);
         window.removeEventListener("resize", handleResize);
         cancelAnimationFrame(animationFrameId);
