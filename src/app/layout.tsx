@@ -1,20 +1,22 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Cinzel, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FloatingLeadBar from "@/components/common/FloatingLeadBar";
 
-const playfair = Playfair_Display({
+const cinzel = Cinzel({
   variable: "--font-heading",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
-const inter = Inter({
+const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -70,7 +72,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable} h-full scroll-smooth`}>
+    <html lang="en" className={`${cinzel.variable} ${plusJakarta.variable} h-full scroll-smooth`}>
       <body className="min-h-full flex flex-col bg-[#FAF8F3] text-[#1C2B38] font-body selection:bg-[#D5AD65] selection:text-[#0B1F33] pb-16 md:pb-0">
         <Navbar />
         <main className="flex-1">{children}</main>
