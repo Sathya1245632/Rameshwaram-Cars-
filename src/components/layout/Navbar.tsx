@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Phone, MessageCircle, Menu, X, Compass } from "lucide-react";
 import { businessInfo } from "@/data/travelData";
@@ -44,8 +45,15 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#D5AD65] to-[#B58D43] flex items-center justify-center text-[#0B1F33] shadow-md group-hover:scale-105 transition-transform">
-              <Compass className="w-6 h-6 stroke-[2.2]" />
+            <div className="relative w-11 h-11 rounded-full overflow-hidden border-2 border-[#D5AD65]/70 shadow-md group-hover:scale-105 group-hover:border-[#D5AD65] transition-all shrink-0 bg-[#0B1F33]">
+              <Image
+                src="/images/logo.jpg"
+                alt="Rameshwaram Cars & Tours Logo"
+                fill
+                sizes="44px"
+                className="object-cover"
+                priority
+              />
             </div>
             <div>
               <span className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[#FAF8F3] block leading-none">

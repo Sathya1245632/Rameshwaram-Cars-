@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Mail, MapPin, MessageCircle, Compass, ShieldCheck, Heart } from "lucide-react";
 import { businessInfo, packagesData, destinationsData } from "@/data/travelData";
 
@@ -51,8 +52,14 @@ export default function Footer() {
           {/* Brand Info */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-[#D5AD65] flex items-center justify-center text-[#0B1F33]">
-                <Compass className="w-6 h-6" />
+              <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-[#D5AD65] shadow-lg shrink-0 bg-[#0B1F33]">
+                <Image
+                  src="/images/logo.jpg"
+                  alt="Rameshwaram Cars & Tours Logo"
+                  fill
+                  sizes="48px"
+                  className="object-cover"
+                />
               </div>
               <div>
                 <span className="font-heading text-2xl font-bold tracking-tight text-[#FAF8F3]">

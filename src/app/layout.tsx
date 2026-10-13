@@ -60,6 +60,10 @@ export const metadata: Metadata = {
     description: "Curated Pilgrimages, Dhanushkodi Safaris, and Madurai Transfers.",
     images: ["/images/hero-bg.jpg"],
   },
+  icons: {
+    icon: "/images/logo.jpg",
+    apple: "/images/logo.jpg",
+  },
   robots: {
     index: true,
     follow: true,
