@@ -366,7 +366,7 @@ export default function Hero3D() {
         {/* Single Clear Gold Action Button */}
         <div className="mt-8 sm:mt-10">
           <Link
-            href="#booking-bar"
+            href="#packages"
             className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-md bg-[#D5AD65] hover:bg-[#B58D43] text-[#0B1F33] font-bold text-sm uppercase tracking-wider shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-0.5 active:scale-95"
           >
             <span>Plan Your Journey</span>

@@ -17,7 +17,6 @@ import {
   Calendar,
 } from "lucide-react";
 import Hero3D from "@/components/home/Hero3D";
-import CompactBookingBar from "@/components/home/CompactBookingBar";
 import PackageCard from "@/components/packages/PackageCard";
 import DestinationCard from "@/components/destinations/DestinationCard";
 import BlogCard from "@/components/blog/BlogCard";
@@ -62,11 +61,8 @@ export default function HomePage() {
       {/* 1. Immersive 3D Hero Section */}
       <Hero3D />
 
-      {/* 2. Compact Booking Bar (Clean & Placed Directly Beneath Hero) */}
-      <CompactBookingBar />
-
-      {/* 3. Featured Tour Packages Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+      {/* 2. Featured Tour Packages Section */}
+      <section id="packages" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
             <div className="flex items-center gap-2 text-[#D5AD65] text-xs font-semibold uppercase tracking-widest mb-2">
