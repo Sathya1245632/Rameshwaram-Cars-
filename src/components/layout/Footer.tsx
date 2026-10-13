@@ -54,7 +54,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-[#D5AD65] shadow-lg shrink-0 bg-[#0B1F33]">
                 <Image
-                  src="/images/logo.jpg"
+                  src="/images/logo-v2.jpg"
                   alt="Rameshwaram Cars & Tours Logo"
                   fill
                   sizes="48px"

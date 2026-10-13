@@ -61,8 +61,8 @@ export const metadata: Metadata = {
     images: ["/images/hero-bg.jpg"],
   },
   icons: {
-    icon: "/images/logo.jpg",
-    apple: "/images/logo.jpg",
+    icon: "/images/logo-v2.jpg",
+    apple: "/images/logo-v2.jpg",
   },
   robots: {
     index: true,

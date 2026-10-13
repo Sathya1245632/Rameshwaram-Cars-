@@ -47,7 +47,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative w-11 h-11 rounded-full overflow-hidden border-2 border-[#D5AD65]/70 shadow-md group-hover:scale-105 group-hover:border-[#D5AD65] transition-all shrink-0 bg-[#0B1F33]">
               <Image
-                src="/images/logo.jpg"
+                src="/images/logo-v2.jpg"
                 alt="Rameshwaram Cars & Tours Logo"
                 fill
                 sizes="44px"
