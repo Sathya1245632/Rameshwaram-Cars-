@@ -3,17 +3,10 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Clock,
-  Ticket,
   Camera,
   MapPin,
-  Calendar,
-  Sparkles,
   ArrowLeft,
-  ArrowRight,
   MessageCircle,
-  Phone,
-  Compass,
 } from "lucide-react";
 import { destinationsData, packagesData, businessInfo } from "@/data/travelData";
 
@@ -86,7 +79,7 @@ export default async function DestinationDetailPage({ params }: DestinationPageP
           </h1>
 
           <p className="mt-3 text-sm sm:text-base text-slate-300 font-heading italic max-w-2xl">
-            "{dest.tagline}"
+            &ldquo;{dest.tagline}&rdquo;
           </p>
         </div>
       </section>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { MessageCircle, Calendar, Car, MapPin, ArrowRight } from "lucide-react";
+import { MessageCircle, Calendar, Car, MapPin } from "lucide-react";
 import { businessInfo } from "@/data/travelData";
 
 export default function CompactBookingBar() {
@@ -60,7 +60,7 @@ export default function CompactBookingBar() {
             >
               <option value="one-day">Rameshwaram One-Day Island Tour</option>
               <option value="theertham">22 Theerthams & Temple Darshan</option>
-              <option value="dhanushkodi">Dhanushkodi Land's End & Ghost Town</option>
+              <option value="dhanushkodi">Dhanushkodi Land&apos;s End & Ghost Town</option>
               <option value="madurai-oneway">Madurai Airport to Rameshwaram (One Way)</option>
               <option value="madurai-round">Madurai ⇄ Rameshwaram Round Trip</option>
             </select>

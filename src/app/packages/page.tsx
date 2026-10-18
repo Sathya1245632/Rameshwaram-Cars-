@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Sparkles, Filter, CheckCircle2, ShieldCheck, MessageCircle, Phone } from "lucide-react";
+import { Sparkles, Filter, MessageCircle } from "lucide-react";
 import PackageCard from "@/components/packages/PackageCard";
 import { packagesData, fleetData, businessInfo } from "@/data/travelData";
 

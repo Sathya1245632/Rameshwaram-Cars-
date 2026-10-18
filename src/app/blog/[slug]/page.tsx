@@ -5,14 +5,11 @@ import Link from "next/link";
 import {
   Calendar,
   Clock,
-  User,
   ArrowLeft,
-  ArrowRight,
   MessageCircle,
   Tag,
-  Share2,
 } from "lucide-react";
-import { blogPostsData, businessInfo, packagesData } from "@/data/travelData";
+import { blogPostsData, businessInfo } from "@/data/travelData";
 import BlogCard from "@/components/blog/BlogCard";
 
 interface BlogPostPageProps {
@@ -117,7 +114,7 @@ export default async function BlogPostDetailPage({ params }: BlogPostPageProps) 
         <div className="bg-white rounded-2xl p-8 sm:p-12 border border-slate-200 shadow-sm space-y-6 text-slate-800 leading-relaxed font-body">
           {/* Excerpt Lead */}
           <p className="text-base sm:text-lg font-heading italic text-[#123B56] pb-6 border-b border-slate-100 leading-relaxed">
-            "{post.excerpt}"
+            &ldquo;{post.excerpt}&rdquo;
           </p>
 
           {/* HTML Content Container */}

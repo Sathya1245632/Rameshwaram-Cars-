@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
-import { Sparkles, Filter, BookOpen, MessageCircle } from "lucide-react";
+import { Filter, BookOpen, MessageCircle } from "lucide-react";
 import BlogCard from "@/components/blog/BlogCard";
 import { blogPostsData, businessInfo } from "@/data/travelData";
 

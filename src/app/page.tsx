@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import {
   Compass,
   ArrowRight,
@@ -9,12 +8,7 @@ import {
   HeartHandshake,
   Clock,
   Star,
-  MapPin,
-  Car,
   MessageCircle,
-  Phone,
-  CheckCircle2,
-  Calendar,
 } from "lucide-react";
 import Hero3D from "@/components/home/Hero3D";
 import PackageCard from "@/components/packages/PackageCard";
@@ -267,7 +261,7 @@ export default function HomePage() {
                   ))}
                 </div>
                 <p className="text-xs text-slate-600 leading-relaxed font-body italic mb-6">
-                  "{test.review}"
+                  &ldquo;{test.review}&rdquo;
                 </p>
               </div>
 
@@ -289,7 +283,7 @@ export default function HomePage() {
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>
               <span className="text-[#D5AD65] text-xs font-semibold uppercase tracking-widest block mb-2">
-                Traveler's Knowledge Hub
+                Traveler&apos;s Knowledge Hub
               </span>
               <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B1F33]">
                 Featured Travel Guides & Articles
