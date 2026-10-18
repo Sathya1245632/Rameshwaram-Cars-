@@ -1,15 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
-import { CheckCircle2, Send, MessageCircle, AlertCircle, Sparkles } from "lucide-react";
-import { packagesData, fleetData, businessInfo } from "@/data/travelData";
+import { CheckCircle2, Send, MessageCircle, Sparkles, Loader2 } from "lucide-react";
+import { packagesData, businessInfo } from "@/data/travelData";
 
 interface EnquiryFormProps {
   defaultPackage?: string;
   sourcePage?: string;
 }
 
-export default function EnquiryForm({ defaultPackage = "", sourcePage = "General" }: EnquiryFormProps) {
+export default function EnquiryForm({ defaultPackage = "" }: EnquiryFormProps) {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -120,12 +120,15 @@ Please share available rates and confirm.`
       <div className="space-y-4">
         {/* Name */}
         <div>
-          <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
+          <label htmlFor="enquiry-name" className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
             Your Full Name *
           </label>
           <input
+            id="enquiry-name"
             type="text"
             required
+            aria-invalid={!!errors.name}
+            aria-describedby={errors.name ? "enquiry-name-error" : undefined}
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             placeholder="e.g. Ramesh Sivaraman"
@@ -133,18 +136,21 @@ Please share available rates and confirm.`
               errors.name ? "border-red-400" : "border-slate-300"
             }`}
           />
-          {errors.name && <p className="text-[11px] text-red-500 mt-1">{errors.name}</p>}
+          {errors.name && <p id="enquiry-name-error" className="text-[11px] text-red-500 mt-1">{errors.name}</p>}
         </div>
 
         {/* Phone & Email */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
+            <label htmlFor="enquiry-phone" className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
               Phone Number (WhatsApp) *
             </label>
             <input
+              id="enquiry-phone"
               type="tel"
               required
+              aria-invalid={!!errors.phone}
+              aria-describedby={errors.phone ? "enquiry-phone-error" : undefined}
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               placeholder="e.g. 9876543210"
@@ -152,14 +158,15 @@ Please share available rates and confirm.`
                 errors.phone ? "border-red-400" : "border-slate-300"
               }`}
             />
-            {errors.phone && <p className="text-[11px] text-red-500 mt-1">{errors.phone}</p>}
+            {errors.phone && <p id="enquiry-phone-error" className="text-[11px] text-red-500 mt-1">{errors.phone}</p>}
           </div>
 
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
+            <label htmlFor="enquiry-email" className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
               Email Address (Optional)
             </label>
             <input
+              id="enquiry-email"
               type="email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -172,26 +179,30 @@ Please share available rates and confirm.`
         {/* Date & Number of Travellers */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
+            <label htmlFor="enquiry-date" className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
               Expected Travel Date *
             </label>
             <input
+              id="enquiry-date"
               type="date"
               required
+              aria-invalid={!!errors.travelDate}
+              aria-describedby={errors.travelDate ? "enquiry-date-error" : undefined}
               value={formData.travelDate}
               onChange={(e) => setFormData({ ...formData, travelDate: e.target.value })}
               className={`w-full bg-[#F2F4F6] border rounded-lg px-4 py-2.5 text-sm text-[#0B1F33] focus:outline-none focus:ring-2 focus:ring-[#D5AD65] ${
                 errors.travelDate ? "border-red-400" : "border-slate-300"
               }`}
             />
-            {errors.travelDate && <p className="text-[11px] text-red-500 mt-1">{errors.travelDate}</p>}
+            {errors.travelDate && <p id="enquiry-date-error" className="text-[11px] text-red-500 mt-1">{errors.travelDate}</p>}
           </div>
 
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
+            <label htmlFor="enquiry-travellers" className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
               Number of Travellers
             </label>
             <select
+              id="enquiry-travellers"
               value={formData.travellers}
               onChange={(e) => setFormData({ ...formData, travellers: e.target.value })}
               className="w-full bg-[#F2F4F6] border border-slate-300 rounded-lg px-4 py-2.5 text-sm text-[#0B1F33] focus:outline-none focus:ring-2 focus:ring-[#D5AD65]"
@@ -208,10 +219,11 @@ Please share available rates and confirm.`
         {/* Selected Package & Vehicle Preference */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
+            <label htmlFor="enquiry-package" className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
               Selected Package / Route
             </label>
             <select
+              id="enquiry-package"
               value={formData.selectedPackage}
               onChange={(e) => setFormData({ ...formData, selectedPackage: e.target.value })}
               className="w-full bg-[#F2F4F6] border border-slate-300 rounded-lg px-4 py-2.5 text-sm text-[#0B1F33] focus:outline-none focus:ring-2 focus:ring-[#D5AD65]"
@@ -227,10 +239,11 @@ Please share available rates and confirm.`
           </div>
 
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
+            <label htmlFor="enquiry-vehicle" className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
               Vehicle Class Preference
             </label>
             <select
+              id="enquiry-vehicle"
               value={formData.vehiclePreference}
               onChange={(e) => setFormData({ ...formData, vehiclePreference: e.target.value })}
               className="w-full bg-[#F2F4F6] border border-slate-300 rounded-lg px-4 py-2.5 text-sm text-[#0B1F33] focus:outline-none focus:ring-2 focus:ring-[#D5AD65]"
@@ -245,10 +258,11 @@ Please share available rates and confirm.`
 
         {/* Additional Requirements */}
         <div>
-          <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
+          <label htmlFor="enquiry-requirements" className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
             Additional Requirements (Pickup Location, Train Number, Senior Citizen Needs)
           </label>
           <textarea
+            id="enquiry-requirements"
             rows={3}
             value={formData.additionalRequirements}
             onChange={(e) => setFormData({ ...formData, additionalRequirements: e.target.value })}
@@ -267,10 +281,13 @@ Please share available rates and confirm.`
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full sm:flex-1 py-3.5 px-6 rounded-lg bg-[#D5AD65] hover:bg-[#B58D43] text-[#0B1F33] text-xs font-bold uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2"
+            className="w-full sm:flex-1 py-3.5 px-6 rounded-lg bg-[#D5AD65] hover:bg-[#B58D43] text-[#0B1F33] text-xs font-bold uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 disabled:opacity-75 disabled:cursor-not-allowed"
           >
             {isSubmitting ? (
-              <span>Checking Availability...</span>
+              <>
+                <Loader2 className="w-4 h-4 animate-spin" />
+                <span>Checking Availability...</span>
+              </>
             ) : (
               <>
                 <Send className="w-4 h-4" />
