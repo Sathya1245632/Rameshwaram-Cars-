@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Clock, Calendar, ArrowRight, User } from "lucide-react";
+import { Clock, Calendar, ArrowRight } from "lucide-react";
 import { BlogPost } from "@/data/travelData";
 
 interface BlogCardProps {

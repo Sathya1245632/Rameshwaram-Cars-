@@ -1,7 +1,7 @@
 import React from "react";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import Link from "next/image";
+import Link from "next/link";
 import {
   Clock,
   MapPin,
@@ -9,12 +9,9 @@ import {
   XCircle,
   HelpCircle,
   MessageCircle,
-  Phone,
   ArrowLeft,
-  ShieldCheck,
-  Calendar,
 } from "lucide-react";
-import { packagesData, businessInfo, TourPackage } from "@/data/travelData";
+import { packagesData, businessInfo } from "@/data/travelData";
 import EnquiryForm from "@/components/common/EnquiryForm";
 
 interface PackagePageProps {
@@ -65,12 +62,12 @@ export default async function PackageDetailPage({ params }: PackagePageProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F33] via-[#0B1F33]/60 to-transparent" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 w-full">
-          <a
+          <Link
             href="/packages"
             className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#D5AD65] hover:underline uppercase tracking-wider mb-4"
           >
             <ArrowLeft className="w-4 h-4" /> Back to All Packages
-          </a>
+          </Link>
 
           <div className="flex flex-wrap items-center gap-3 mb-3">
             <span className="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#123B56] text-[#D5AD65] border border-[#D5AD65]/30">

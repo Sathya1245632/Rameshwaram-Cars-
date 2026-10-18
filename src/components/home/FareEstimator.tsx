@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Calculator, CheckCircle2, MessageCircle, Phone, Sparkles } from "lucide-react";
+import { Calculator, CheckCircle2, MessageCircle, Sparkles } from "lucide-react";
 import { businessInfo } from "@/data/travelData";
 
 export default function FareEstimator() {
@@ -109,7 +109,7 @@ Please confirm availability and booking procedure.`
             >
               <option value="one-day">Rameshwaram One-Day Complete Island Tour (8-10 Hrs)</option>
               <option value="theertham">Sacred 22 Theerthams & Temple Darshan (5-6 Hrs)</option>
-              <option value="dhanushkodi">Dhanushkodi Land's End & Ghost Town Safari (4-5 Hrs)</option>
+              <option value="dhanushkodi">Dhanushkodi Land&apos;s End & Ghost Town Safari (4-5 Hrs)</option>
               <option value="madurai-oneway">Madurai Airport / Junction ➔ Rameshwaram (One Way)</option>
               <option value="madurai-round">Madurai ⇄ Rameshwaram Same-Day Round Trip</option>
             </select>

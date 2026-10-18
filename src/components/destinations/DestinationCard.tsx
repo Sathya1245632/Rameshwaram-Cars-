@@ -42,7 +42,7 @@ export default function DestinationCard({ destination }: DestinationCardProps) {
         {/* Body Info with Clean Whitespace */}
         <div className="p-6">
           <p className="text-xs text-slate-500 italic mb-2.5 font-heading">
-            "{destination.tagline}"
+            &ldquo;{destination.tagline}&rdquo;
           </p>
 
           <p className="text-xs text-slate-600 leading-relaxed line-clamp-3 font-body">

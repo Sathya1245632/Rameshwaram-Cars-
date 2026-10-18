@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { Sparkles, Clock, Ticket, ArrowRight, MessageCircle, MapPin, Compass } from "lucide-react";
+import { Sparkles, Clock, MessageCircle, MapPin, Compass } from "lucide-react";
 import DestinationCard from "@/components/destinations/DestinationCard";
 import { destinationsData, businessInfo } from "@/data/travelData";
 

@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { CheckCircle2, Send, MessageCircle, AlertCircle, Sparkles } from "lucide-react";
-import { packagesData, fleetData, businessInfo } from "@/data/travelData";
+import { CheckCircle2, Send, MessageCircle, Sparkles } from "lucide-react";
+import { packagesData, businessInfo } from "@/data/travelData";
 
 interface EnquiryFormProps {
   defaultPackage?: string;
@@ -55,7 +55,7 @@ export default function EnquiryForm({ defaultPackage = "", sourcePage = "General
 
   const whatsappInquiryText = encodeURIComponent(
     `Hello Rameshwaram Cars!
-I would like to request a quote:
+I would like to request a quote (Source: ${sourcePage}):
 • Name: ${formData.name || "Traveller"}
 • Phone: ${formData.phone || "Not provided"}
 • Package: ${formData.selectedPackage}
