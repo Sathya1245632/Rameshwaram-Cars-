@@ -109,7 +109,7 @@ Please confirm availability and booking procedure.`
             >
               <option value="one-day">Rameshwaram One-Day Complete Island Tour (8-10 Hrs)</option>
               <option value="theertham">Sacred 22 Theerthams & Temple Darshan (5-6 Hrs)</option>
-              <option value="dhanushkodi">Dhanushkodi Land's End & Ghost Town Safari (4-5 Hrs)</option>
+              <option value="dhanushkodi">Dhanushkodi Land&apos;s End &amp; Ghost Town Safari (4-5 Hrs)</option>
               <option value="madurai-oneway">Madurai Airport / Junction ➔ Rameshwaram (One Way)</option>
               <option value="madurai-round">Madurai ⇄ Rameshwaram Same-Day Round Trip</option>
             </select>
@@ -120,7 +120,7 @@ Please confirm availability and booking procedure.`
             <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
               Choose Vehicle Class:
             </label>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5" role="group" aria-label="Vehicle Class Selection">
               {[
                 { id: "sedan", name: "Swift / Etios", cap: "4 Seater" },
                 { id: "ertiga", name: "Ertiga Tour", cap: "6 Seater" },
@@ -131,7 +131,8 @@ Please confirm availability and booking procedure.`
                   key={veh.id}
                   type="button"
                   onClick={() => setSelectedVehicle(veh.id)}
-                  className={`p-3 rounded-lg border text-left transition-all ${
+                  aria-pressed={selectedVehicle === veh.id}
+                  className={`p-3 rounded-lg border text-left transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D5AD65] focus-visible:ring-offset-1 ${
                     selectedVehicle === veh.id
                       ? "border-[#D5AD65] bg-[#FAF8F3] shadow-sm ring-1 ring-[#D5AD65]"
                       : "border-slate-200 hover:border-slate-300 bg-white"
