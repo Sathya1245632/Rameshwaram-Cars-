@@ -7,3 +7,5 @@
 - Network:       http://192.168.0.2:3000
 ✓ Ready in 210ms
 ✓ Running next.config.ts took 43ms
+Killed
+ ELIFECYCLE  Command failed with exit code 137.
