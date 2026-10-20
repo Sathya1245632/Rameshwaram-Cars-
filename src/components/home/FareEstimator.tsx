@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Calculator, CheckCircle2, MessageCircle, Phone, Sparkles } from "lucide-react";
+import { Calculator, CheckCircle2, MessageCircle, Sparkles } from "lucide-react";
 import { businessInfo } from "@/data/travelData";
 
 export default function FareEstimator() {
@@ -99,17 +99,18 @@ Please confirm availability and booking procedure.`
         <div className="lg:col-span-7 space-y-6">
           {/* 1. Route Selector */}
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
+            <label htmlFor="route-select" className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
               Select Your Travel Route or Package:
             </label>
             <select
+              id="route-select"
               value={selectedRoute}
               onChange={(e) => setSelectedRoute(e.target.value)}
               className="w-full bg-[#F2F4F6] border border-slate-300 rounded-lg px-4 py-3 text-sm text-[#0B1F33] font-medium focus:outline-none focus:ring-2 focus:ring-[#D5AD65]"
             >
               <option value="one-day">Rameshwaram One-Day Complete Island Tour (8-10 Hrs)</option>
               <option value="theertham">Sacred 22 Theerthams & Temple Darshan (5-6 Hrs)</option>
-              <option value="dhanushkodi">Dhanushkodi Land's End & Ghost Town Safari (4-5 Hrs)</option>
+              <option value="dhanushkodi">Dhanushkodi Land&apos;s End & Ghost Town Safari (4-5 Hrs)</option>
               <option value="madurai-oneway">Madurai Airport / Junction ➔ Rameshwaram (One Way)</option>
               <option value="madurai-round">Madurai ⇄ Rameshwaram Same-Day Round Trip</option>
             </select>
@@ -117,10 +118,10 @@ Please confirm availability and booking procedure.`
 
           {/* 2. Vehicle Selector */}
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
+            <span id="vehicle-class-label" className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
               Choose Vehicle Class:
-            </label>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+            </span>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5" role="group" aria-labelledby="vehicle-class-label">
               {[
                 { id: "sedan", name: "Swift / Etios", cap: "4 Seater" },
                 { id: "ertiga", name: "Ertiga Tour", cap: "6 Seater" },
@@ -130,8 +131,10 @@ Please confirm availability and booking procedure.`
                 <button
                   key={veh.id}
                   type="button"
+                  aria-pressed={selectedVehicle === veh.id}
+                  aria-label={`Select ${veh.name} (${veh.cap})`}
                   onClick={() => setSelectedVehicle(veh.id)}
-                  className={`p-3 rounded-lg border text-left transition-all ${
+                  className={`p-3 rounded-lg border text-left transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D5AD65] ${
                     selectedVehicle === veh.id
                       ? "border-[#D5AD65] bg-[#FAF8F3] shadow-sm ring-1 ring-[#D5AD65]"
                       : "border-slate-200 hover:border-slate-300 bg-white"
@@ -147,10 +150,11 @@ Please confirm availability and booking procedure.`
           {/* 3. Date & Passenger Count */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
+              <label htmlFor="travel-date" className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
                 Travel Date (Optional):
               </label>
               <input
+                id="travel-date"
                 type="date"
                 value={travelDate}
                 onChange={(e) => setTravelDate(e.target.value)}
@@ -158,10 +162,11 @@ Please confirm availability and booking procedure.`
               />
             </div>
             <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
+              <label htmlFor="passenger-count" className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
                 Number of Travellers:
               </label>
               <select
+                id="passenger-count"
                 value={passengers}
                 onChange={(e) => setPassengers(Number(e.target.value))}
                 className="w-full bg-[#F2F4F6] border border-slate-300 rounded-lg px-4 py-2.5 text-sm text-[#0B1F33] focus:outline-none focus:ring-2 focus:ring-[#D5AD65]"

@@ -21,6 +21,7 @@ import PackageCard from "@/components/packages/PackageCard";
 import DestinationCard from "@/components/destinations/DestinationCard";
 import BlogCard from "@/components/blog/BlogCard";
 import EnquiryForm from "@/components/common/EnquiryForm";
+import FareEstimator from "@/components/home/FareEstimator";
 import {
   packagesData,
   destinationsData,
@@ -91,6 +92,11 @@ export default function HomePage() {
             <PackageCard key={pkg.slug} pkg={pkg} />
           ))}
         </div>
+      </section>
+
+      {/* 3. Fare Estimator Section */}
+      <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <FareEstimator />
       </section>
 
       {/* 4. Popular Destinations Section */}
