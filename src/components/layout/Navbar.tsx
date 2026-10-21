@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Phone, MessageCircle, Menu, X, Compass } from "lucide-react";
+import { Phone, MessageCircle, Menu, X } from "lucide-react";
 import { businessInfo } from "@/data/travelData";
 
 export default function Navbar() {
@@ -110,8 +110,10 @@ export default function Navbar() {
           {/* Mobile Hamburger Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-[#FAF8F3] hover:text-[#D5AD65] focus:outline-none"
-            aria-label="Toggle navigation menu"
+            className="lg:hidden p-2 rounded-md text-[#FAF8F3] hover:text-[#D5AD65] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D5AD65]"
+            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -119,7 +121,7 @@ export default function Navbar() {
 
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-[#0B1F33] border-t border-[#D5AD65]/20 px-4 pt-3 pb-6 space-y-3 animate-fadeIn">
+          <div id="mobile-menu" className="lg:hidden bg-[#0B1F33] border-t border-[#D5AD65]/20 px-4 pt-3 pb-6 space-y-3 animate-fadeIn">
             <div className="flex flex-col space-y-2">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
